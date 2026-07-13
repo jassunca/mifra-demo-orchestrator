@@ -14,7 +14,7 @@ import org.mifra.participants.TreatmentParticipant;
  * and register the defined orchestrator and participants to the Mifra Engine, which handles the application
  * bootstrapping.
  * After creating a Mifra Engine instance, an orchestrator is registered by providing: the endpoint path the request
- * is expected at, the class that  represents the deserialized JSON request body, the class that represents the
+ * is expected at, the class that represents the deserialized JSON request body, the class that represents the
  * object to serialize as the JSON reply body, and the orchestrator itself, that is instantiated beforehand. In this
  * example, the application will listen at the endpoint 'localhost:8080/order/request' and process requests in which
  * its payload in JSON format correctly deserializes to the class defined as the RequestBody (here being
