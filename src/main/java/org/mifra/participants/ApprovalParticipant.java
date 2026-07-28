@@ -24,7 +24,7 @@ public class ApprovalParticipant implements Participant {
      */
     public SagaStepMessage<ApprovalStepPayload> approve(SagaStepHistory history) {
 
-        /*
+        /**
         The Request message is always guaranteed to exist in the history, so no conditional check is needed.
          */
         RequestPayload request = history.getStep(RequestPayload.class).getPayload();
@@ -32,7 +32,7 @@ public class ApprovalParticipant implements Participant {
         String decision;
         String details;
 
-        /*
+        /**
         Because the TreatmentStep message may or may not exist, the SagaStepHistory has() boolean method verifies if a
         given message exists without trying to retrieve it.
          */

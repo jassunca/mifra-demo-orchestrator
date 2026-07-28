@@ -85,7 +85,7 @@ public class RequestApprovalOrchestrator implements Orchestrator<ApprovalRequest
     @Override
     public void defineStepMap(SagaStepMap sagaStepMap) {
 
-        /*
+        /**
         This method call defines the first participant executed in the saga. This label matches the label of one of the
         participants that is registered during bootstrap.
         In the configuration phase of this demo application, the method analyse() of the participant
@@ -94,7 +94,7 @@ public class RequestApprovalOrchestrator implements Orchestrator<ApprovalRequest
          */
         sagaStepMap.setInitialStep("OrderAnalysis");
 
-        /*
+        /**
         This method chain defines the behaviour of the step map after the OrderAnalysis step. First, configureStep
         defines which step is being set up, and both addStepResult methods define next possible steps depending on the
         step outcome received. The step outcome is defined by the participant and appended to the SagaStepMessage it
@@ -107,14 +107,14 @@ public class RequestApprovalOrchestrator implements Orchestrator<ApprovalRequest
                 .addStepResult("Valid","OrderApproval")
                 .addStepResult("OverLimit","OrderTreatment");
 
-        /*
+        /**
         This method call to set up the OrderTreatment step is very similar to the one above, but in this case it only
         has one possible route to take: OrderTreatment produces the step Treated and the saga advances to OrderApproval.
          */
         sagaStepMap.configureStep("OrderTreatment")
                 .addStepResult("Treated", "OrderApproval");
 
-        /*
+        /**
         When a given step in the step map does not have at least one configured next step, it's treated as a final
         step. After its execution is completed, the associated SagaStepHistory is handed back to the orchestrator to
         prepare the reply to send back to the client.
